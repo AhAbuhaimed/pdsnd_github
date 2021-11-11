@@ -191,7 +191,7 @@ def user_stats(df,city):
 
 
 def display_data(df):
-       """Generates 5 rows of raw data based on the user input"""
+       """keeps generating 5 rows of raw data based on the user input"""
        view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n')
        start_loc = 0
        while (view_data.lower() != "yes" and view_data != "no"):
