@@ -15,18 +15,25 @@ This Project was created for the Udacity course "Programming for Data Science" ,
 ### Files used
 
 new_york_city.csv
+
 chicago.csv
+
 washington.csv
+
 bikeshare.py
 
 ### Requirements
 
 Python 3.9.8
+
 Numpy
+
 Pandas
 
 ### Credits
 
 Stackoverflow,
+
 Udacity student chat,
+
 Google Search.
