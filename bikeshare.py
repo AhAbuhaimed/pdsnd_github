@@ -100,7 +100,7 @@ def time_stats(df):
 
     # TO DO: display the most common day of week
     # extract week from the Start Time column to create an week column
-    df['week'] = df['Start Time'].dt.week
+    df['week'] = df['Start Time'].dt.isocalendar().week
     # find the most popular week
     popular_week = df['week'].mode()[0]
     print('Most Popular Start week:', popular_week)
