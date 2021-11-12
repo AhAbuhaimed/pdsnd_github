@@ -100,7 +100,7 @@ def time_stats(df):
 
     # TO DO: display the most common day of week
     # extract week from the Start Time column to create an week column
-    df['week'] = df['Start Time'].dt.week
+    df['week'] = df['Start Time'].dt.isocalendar().week
     # find the most popular week
     popular_week = df['week'].mode()[0]
     print('Most Popular Start week:', popular_week)
@@ -179,9 +179,9 @@ def user_stats(df,city):
 
     # TO DO: Display earliest, most recent, and most common year of birth
     try:
-        earliest_yob = df['Birth Year'].min().astype("Int32")
-        most_recent_yob = df['Birth Year'].max().astype("Int32")
-        most_common_yob = df['Birth Year'].mode()[0].astype("Int32")
+        earliest_yob = int(df['Birth Year'].min())
+        most_recent_yob = int(df['Birth Year'].max())
+        most_common_yob = int(df['Birth Year'].mode()[0])
         print('\nThe earliest year of birth is {},the most recent is {} and the most common is {}.'.format(earliest_yob,most_recent_yob,most_common_yob))
     except KeyError:
         print("Year of birth information is not available for {}".format(city).title())
@@ -191,18 +191,39 @@ def user_stats(df,city):
 
 
 def display_data(df):
+<<<<<<< .merge_file_a11936
        """keeps generating 5 rows of raw data based on the user input"""
        view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n')
+||||||| .merge_file_a01392
+       """Generates 5 rows of raw data based on the user input"""
+       view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n')
+=======
+       """Generates 5 rows of raw data based on the user input"""
+>>>>>>> .merge_file_a09308
        start_loc = 0
-       while (view_data.lower() != "yes" and view_data != "no"):
-            print("Sorry, that's not an option")
-            view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n')
-       while view_data == "yes":
-            print(df.iloc[start_loc:(start_loc + 6)])
-            start_loc += 5
-            view_data = input("Do you wish to view 5 more rows ?: \n").lower()
-       if view_data == "no":
-        print('\nNo more rows will be printed!\n')
+       while True :
+           view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n')
+           while (view_data.lower() != "yes" and view_data != "no"):
+                print("Thats not a valid input , please enter 'yes' or 'no'\n")
+                break
+           if (view_data.lower() == "yes" or view_data == "no"):
+                break
+       while True :
+           if view_data == "yes":
+                print(df.iloc[start_loc:(start_loc + 6)])
+                start_loc += 5
+                while True :
+                    view_data = input("Do you wish to view 5 more rows ?: \n").lower()
+                    if (view_data.lower() != "yes" and view_data != "no"):
+                        print("Thats not a valid input , please enter 'yes' or 'no'\n")
+                    elif view_data == "yes":
+                        print(df.iloc[start_loc:(start_loc + 6)])
+                        start_loc += 5
+                    elif view_data == "no":
+                     break
+           elif view_data == "no":
+            print('\nNo rows will be printed!\n')
+            break
 
 
 def main():
