@@ -195,7 +195,7 @@ def display_data(df):
        view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n')
        start_loc = 0
        while (view_data.lower() != "yes" and view_data != "no"):
-            print("Sorry, that's not an option")
+            print("Thats not a valid input , please enter 'yes' or 'no'\n")
             view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n')
        while view_data == "yes":
             print(df.iloc[start_loc:(start_loc + 6)])
